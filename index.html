@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokemon Emulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ff6b6b, #64b5f6, #00c853, #ff6b6b);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    .search-bar input[type="submit"] {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 20px;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-bar input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .links {
+      margin-top: 30px;
+      visibility:visible;
+      display:inline-block;
+    }
+
+    .links a {
+
+      margin: 10px;
+      padding: 16px 32px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .links a:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('searchInput');
+      const gameLinks = document.querySelectorAll('.links a');
+
+      searchInput.addEventListener('input', function (event) {
+        const query = event.target.value.toLowerCase();
+
+        gameLinks.forEach(function (link) {
+          const gameName = link.innerHTML.toLowerCase();
+
+          if (!query || gameName.includes(query)) {
+            link.style.display = 'inline-block';
+          } else {
+            link.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Pokemon Emulator</h1>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for a game...">
+      <input type="submit" value="Search">
+    </div>
+    <div class="links">
+      <a href="unbound.html">Play Unbound</a>
+      <a href="emerald.html">Play Emerald</a>
+    </div>
+  </div>
+</body>
+</html>
